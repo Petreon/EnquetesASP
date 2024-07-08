@@ -11,5 +11,22 @@ namespace EnquetesASP.Controllers
             return View();
         }
 
+        [HttpGet]
+        public IActionResult Responder()
+        {
+            // Will search for a view called Responder.cshtml
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Responder(Resposta userResposta)
+        {
+            //databiding
+            //will receive the object Resposta in form
+
+            Repositorio.AdicionarResposta(userResposta);
+
+            return Content($"Recebemos sua reposta com sucesso: {userResposta.Name}");
+        }
     }
 }
